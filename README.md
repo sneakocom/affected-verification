@@ -25,9 +25,27 @@ node bin/affected-verification.js \
 
 Canonical plan JSON is written to stdout. The `opsle.value-receipt.v1` is written only to the requested sidecar, and one `[Affected Verification]` indicator is written to stderr. The fixture reports exactly 14 of 1,043 test executions selected, 1,029 skipped, plus one lint and one typecheck; the test-execution reduction is an `EXACT` calculation, not a time, cost, token, or correctness claim.
 
+Expected output: the plan on stdout has `plan_identity`
+`sha256:ba043f4377df8a1cd80521b101da09f08e03382e936bc305921c790bef52821e`,
+and stderr is exactly:
+
+```text
+[Affected Verification] Selected tests: 14/1043; other checks: 1 lint, 1 typecheck; skipped tests: 1029; dependency safety additions: 0 checks/0 test executions; opaque boundaries selected: 0; test-execution reduction: 98.7%; sufficiency: SUFFICIENT_TARGETED; impact uncertainty: none
+```
+
+No install step is needed (dependency-free, Node.js 20+). One command runs
+the full proof: syntax checks, the test suite, conformance, the determinism
+subset, the AV-EXP-003 result verification, and the demo above:
+
 ```bash
 npm run verify
 ```
+
+One test in the suite is conditional: the Tasks runtime test in
+`tests/tasks-capability.test.js` skips unless `OPSLE_TASKS_RUNTIME_ROOT`
+points at a pinned Tasks checkout (it is exercised separately by
+`npm run verify:tasks-capability`). Every other test runs from a fresh
+clone.
 
 ## Contract and evidence
 
