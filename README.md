@@ -33,7 +33,8 @@ and stderr is exactly:
 [Affected Verification] Selected tests: 14/1043; other checks: 1 lint, 1 typecheck; skipped tests: 1029; dependency safety additions: 0 checks/0 test executions; opaque boundaries selected: 0; test-execution reduction: 98.7%; sufficiency: SUFFICIENT_TARGETED; impact uncertainty: none
 ```
 
-No install step is needed (dependency-free, Node.js 20+). One command runs
+No install step is needed (dependency-free, Node.js 20+; the verify suite
+also calls Python 3 once, to syntax-check a boundary tool). One command runs
 the full proof: syntax checks, the test suite, conformance, the determinism
 subset, the AV-EXP-003 result verification, and the demo above:
 
