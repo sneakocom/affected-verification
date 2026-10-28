@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 2,
+  "application": "affected-verification",
+  "applicationClass": "source-repository",
+  "repository": {
+    "slug": "sneakocom/affected-verification",
+    "cloneUrl": "git@github.com:sneakocom/affected-verification.git"
+  },
+  "hostAdmin": {
+    "services": [],
+    "database": null
+  },
+  "security": {
+    "trivy": true,
+    "renovate": true,
+    "health": null
+  }
+}
