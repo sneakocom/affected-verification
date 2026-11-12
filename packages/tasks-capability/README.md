@@ -1,6 +1,6 @@
 # Affected Verification capability for Opsle Tasks
 
-`@opsle/affected-verification-tasks-capability` **0.2.0** is an independently
+`@opsle/affected-verification-tasks-capability` **0.2.1** is an independently
 versioned, dependency-free capability owned and released by the public Affected
 Verification repository. AV remains the verification planning authority. Tasks
 owns operator grants, command execution, observed results, repair, and release.
@@ -23,7 +23,7 @@ Build from an AV checkout with Node 20+ and npm:
 
 ```sh
 npm run pack:tasks-capability
-sha256sum opsle-affected-verification-tasks-capability-0.2.0.tgz
+sha256sum opsle-affected-verification-tasks-capability-0.2.1.tgz
 ```
 
 `npm pack` builds the adapter, includes the current AV core, runtime helpers,
@@ -33,13 +33,13 @@ network dependencies are required. Review the artifact hash and provenance
 before an operator installs it outside repositories and agent-writable paths:
 
 ```sh
-npm install --prefix /srv/opsle-capabilities/av-0.2.0 \
+npm install --prefix /srv/opsle-capabilities/av-0.2.1 \
   --ignore-scripts --no-audit --no-fund \
-  ./opsle-affected-verification-tasks-capability-0.2.0.tgz
+  ./opsle-affected-verification-tasks-capability-0.2.1.tgz
 ```
 
 Set the operator-owned `OPSLE_CAPABILITY_PATH` to the installed directory:
-`/srv/opsle-capabilities/av-0.2.0/node_modules/@opsle/affected-verification-tasks-capability`.
+`/srv/opsle-capabilities/av-0.2.1/node_modules/@opsle/affected-verification-tasks-capability`.
 Tasks also accepts the generic `capabilityRoots` configuration. Multiple roots
 use the platform path delimiter. Include the individually installed roots for
 other required authorities and observers. **Replace** the bundled AV discovery
@@ -163,7 +163,7 @@ recorded revision, then run:
 npm run verify
 OPSLE_TASKS_RUNTIME_ROOT=/path/to/pinned/opsle-tasks npm run verify:tasks-capability
 npm run pack:tasks-capability
-sha256sum opsle-affected-verification-tasks-capability-0.2.0.tgz
+sha256sum opsle-affected-verification-tasks-capability-0.2.1.tgz
 ```
 
 The second command is mandatory for release: it refuses to skip if Tasks is

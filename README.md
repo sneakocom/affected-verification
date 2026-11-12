@@ -6,10 +6,11 @@ The operative claim is **minimum defensible verification**, not mathematical glo
 
 This repository contains a dependency-free Node.js 20 planner. It consumes normalized change, impact, check-level dependency-completeness, verification-catalog, and policy data and emits an `opsle.affected-verification.plan.v2` argument containing selected checks, skipped checks, boundary evidence, exact reasons, provenance hashes, uncertainty, escalation, and sufficiency. It plans work; it does not run commands.
 
-`opsle/tasks` is a production consumer of this public plan contract. Tasks captures
-the staged BUILD tree, derives normalized input from a base-revision manifest,
-invokes the CLI without a shell, validates the returned action IDs and commands
-against that immutable input, and retains execution authority. AV output never
+`opsle/tasks` was a production consumer of this public plan contract before
+Opsle Tasks was retired on 2026-10-31. Tasks captured
+the staged BUILD tree, derived normalized input from a base-revision manifest,
+invoked the CLI without a shell, validated the returned action IDs and commands
+against that immutable input, and retained execution authority. AV output never
 creates an unrestricted command surface. An empty change set and an empty
 verification catalog are valid inputs so consumers can represent unchanged
 builds and repositories with no automated checks without inventing work; the
@@ -68,7 +69,7 @@ AV's research evidence remains narrow and does not establish general selector
 completeness. AV-EXP-001 observed no AV miss in its frozen JavaScript corpus;
 AV-EXP-002 permanently observed one AV miss in its frozen Python corpus;
 AV-EXP-003 selected that known check under the repair and observed zero repaired
-misses in its generalized and frozen replay corpora. Tasks therefore treats
+misses in its generalized and frozen replay corpora. A consumer therefore treats
 targeted selection as authoritative only when the repository manifest declares
 complete impact, catalog, and check-boundary evidence. Unknown or incomplete
 evidence broadens to the full configured command or stops; it never silently
@@ -77,6 +78,9 @@ becomes a passing verification result.
 Apache-2.0.
 
 ## Opsle Tasks capability package
+
+Opsle Tasks was retired on 2026-10-31. The package below is retained as the
+versioned adapter artifact and contract reference, not a live product.
 
 The independently versioned [Tasks capability package](packages/tasks-capability/README.md)
 ships the executable planning/capture adapter, AV runtime, and explicit schemas.
